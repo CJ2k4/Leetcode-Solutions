@@ -22,8 +22,12 @@ class Solution {
         return dp[i][gcd1][gcd2]=(int)(((long)skip+take1+take2)%MOD);
     }
 
-    int gcd(int a, int b){
-        if(b==0)return a;
-        return gcd(b, a%b);
+    private int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = a;
+            a = b;
+            b = temp % b;
+        }
+        return a;
     }
 }

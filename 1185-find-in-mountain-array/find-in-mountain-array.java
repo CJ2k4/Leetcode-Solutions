@@ -12,15 +12,14 @@ class Solution {
         int n = m.length()-1;
         int low = 0;
         int high = n;
-        int peak = 0;
-        while(low<=high){
+        while(low<high){
             int mid= low + (high-low)/2;
             int midNum = m.get(mid);
-            if(mid-1>=0 && midNum>m.get(mid-1)){
-                peak = mid;
+            if(midNum<m.get(mid+1)){
                 low = mid + 1;
-            }else high = mid-1;
+            }else high = mid;
         }
+        int peak = low;
         low = 0; high = peak;
         while(low<=high){
             int mid = low + (high-low)/2;

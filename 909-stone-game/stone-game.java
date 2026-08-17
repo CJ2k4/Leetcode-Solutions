@@ -1,12 +1,13 @@
 class Solution {
     public boolean stoneGame(int[] piles) {
-        dp = new int[piles.length][piles.length];
-        for(int[] d : dp){
-            Arrays.fill(d, -1);
-        }
-        int alice = solve(piles, 0,piles.length-1);
-        int sum = Arrays.stream(piles).reduce(0,(a,b)->a+b);
-        return (alice > sum-alice);
+        // dp = new int[piles.length][piles.length];
+        // for(int[] d : dp){
+        //     Arrays.fill(d, -1);
+        // }
+        // int alice = solve(piles, 0,piles.length-1);
+        // int sum = Arrays.stream(piles).reduce(0,(a,b)->a+b);
+        // return (alice > sum-alice);
+        return true;
     }
     int[][] dp;
     int solve(int[] piles, int i, int j){

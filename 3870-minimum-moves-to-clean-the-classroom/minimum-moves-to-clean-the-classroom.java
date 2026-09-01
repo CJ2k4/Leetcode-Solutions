@@ -49,6 +49,7 @@ class Solution {
             steps++;
 
             for(int s= 0; s<size; s++){
+
                 Integer[] state = q.poll();
                 r = state[0];
                 c = state[1];
@@ -58,7 +59,8 @@ class Solution {
                 for(int i = 0 ; i<4; i++){
                     int nr = r + dr[i];
                     int nc = c + dc[i];
-
+                    
+                    //agar wall hui toh aage nahi jaa paaeyeg, agar e=0 hua, toh ne = -1 ho jaayega, impossible
                     if(nr>=0 && nr<classroom.length && nc>=0 && nc < classroom[0].length() && classroom[nr].charAt(nc)!='X' && e>0){
 
                         int ne = e-1;

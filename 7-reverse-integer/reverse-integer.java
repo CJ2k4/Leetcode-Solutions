@@ -7,7 +7,7 @@ class Solution {
             int dig = x%10;
             x= x/10;
             if(ans>Integer.MAX_VALUE/10 || (ans==Integer.MAX_VALUE && dig>0))return 0;
-            if(ans<Integer.MIN_VALUE/10 || (ans==Integer.MIN_VALUE && dig<-8))return 0;
+            if(ans<Integer.MIN_VALUE/10 || (ans==Integer.MIN_VALUE && dig<0))return 0;
             ans = ans*10 + dig;
         }
         return ans;

@@ -10,7 +10,6 @@ class Solution {
         this.s = s;
         prev = new int[n];
         Arrays.fill(prev, -1);
-        dp[0] = 1;
         for (int i = 0; i < n; i++) {
             int c = s.charAt(i) - 'a';
             prev[i] = lastSeen[c];

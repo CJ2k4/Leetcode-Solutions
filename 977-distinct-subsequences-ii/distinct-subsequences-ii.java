@@ -15,7 +15,7 @@ class Solution {
             prev[i] = lastSeen[c];
             lastSeen[c] = i;
         }
-        return (int) (solve(s.length() - 1)) % MOD;
+        return (int) (solve(s.length() - 1)-1 + MOD) % MOD;
     }
 
     String s;
@@ -24,13 +24,13 @@ class Solution {
 
     long solve(int n) {
         if (n < 0)
-            return 0;
+            return 1;
         if (dp[n] != -1)
             return dp[n];
-        long total = (2 * solve(n - 1) + 1) % MOD;
-        int duplicates = 0;
-        if (prev[n] != -1)
-            total = (total - (solve(prev[n] - 1) + 1) + MOD) % MOD;
+        long total = (2*solve(n - 1))%MOD;
+        if (prev[n] != -1){
+            total = (total - (solve(prev[n] - 1)) + MOD) % MOD;
+        }
         return dp[n] = (total);
     }
 }

@@ -1,25 +1,20 @@
 class Solution {
     public int totalNumbers(int[] digits) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int i: digits){
-            map.put(i, map.getOrDefault(i, 0)+1);
-        }
-        int ans=0;
-        for(int i = 100; i<1000; i+=2){
-            int temp = i;
-            Map<Integer, Integer> tempMap = new HashMap<>(map);
-            boolean possible = true;
-            while(temp!=0){
-                if(tempMap.containsKey(temp%10)){
-                    tempMap.put(temp%10, tempMap.get(temp%10)-1);
-                    if(tempMap.get(temp%10) == 0)tempMap.remove(temp%10);
-                }else{
-                    possible = false;
-                    break;
+        int[] freq = new int[10];
+        for(int i : digits)freq[i]++;
+        int ans = 0;
+        for(int a = 1; a<=9; a++){
+            if(freq[a]==0)continue;
+            freq[a]--;
+            for(int b = 0; b<10; b++){
+                if(freq[b]==0)continue;
+                freq[b]--;
+                for(int c = 0; c<9; c+=2){
+                    if(freq[c]>0)ans++;
                 }
-                temp/=10;
+                freq[b]++;
             }
-            if(possible)ans++;
+            freq[a]++;
         }
         return ans;
     }

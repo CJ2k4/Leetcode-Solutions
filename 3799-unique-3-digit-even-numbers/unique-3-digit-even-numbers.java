@@ -3,13 +3,13 @@ class Solution {
         int[] freq = new int[10];
         for(int i : digits)freq[i]++;
         int ans = 0;
-        for(int a = 1; a<=9; a++){
+        for(int a = 1; a<=9; a++){//this is checking 100th place, it can't zero (* _ _)
             if(freq[a]==0)continue;
             freq[a]--;
-            for(int b = 0; b<10; b++){
+            for(int b = 0; b<10; b++){//this is for 10th place (_ * _)
                 if(freq[b]==0)continue;
                 freq[b]--;
-                for(int c = 0; c<9; c+=2){
+                for(int c = 0; c<9; c+=2){//this is for once place, it can only be even. if its freq is not 0, ans++;
                     if(freq[c]>0)ans++;
                 }
                 freq[b]++;

@@ -10,9 +10,7 @@ class Solution {
         int n = s.length();
         StringBuilder ans = new StringBuilder();
         while(i<n){
-            if(isAlpha(s.charAt(i))){
-                ans.append(s.charAt(i));
-            }else if(s.charAt(i) == '('){
+            if(s.charAt(i) == '('){
                 StringBuilder temp = new StringBuilder();
                 i++;
                 while(i<n && s.charAt(i)!= ')'){
@@ -24,12 +22,9 @@ class Solution {
                     ans.append(map.get(temp.toString()));
                 }
                 else ans.append('?');
-            }
+            }else ans.append(s.charAt(i));
             i++;
         }
         return ans.toString();
-    }
-    boolean isAlpha(char ch){
-        return ch<='z' && ch>='a';
     }
 }

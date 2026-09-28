@@ -5,10 +5,10 @@ class Solution {
         for(char ch : s.toCharArray()){
             if(ch=='('){
                 ans++;
+                max=Math.max(ans,max);
             }else if(ch==')'){
                 ans--;
             }
-            max=Math.max(ans,max);
         }
         return max;
     }
